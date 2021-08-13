@@ -1,4 +1,3 @@
-import random
 students = [
     {'name': 'John', 'age': 15, 'course': 'python', 'gender': 'Male'},
     {'name': 'Andrew', 'age': 20, 'course': 'javascript', 'gender': 'Male'},
@@ -38,31 +37,19 @@ students = [
     {'name': 'Sultan', 'age': 13, 'course': 'python', 'gender': 'Male'},
 ]
 
-lst1 = {}
-lst2 = {}   
-lst3 = {}
-for j in students:
-    for i in j.keys():
-        if i == 'python':
-            lst1.update(i)
-        elif i == 'java':
-            lst2.update(i)
-        elif i == 'javascript':
-            lst3.update(i)
+# 1
+diction = {'python':[], 'java':[], 'javascript': []}
+for i in students:
+   if i['course'] in diction:
+       diction[i['course']].append(i['name'])
 
+print(diction)
 
-ls = ['python']
-ls1 = ['java']
-ls2 = ['javascript']
-courses1 =  dict(zip(ls, lst1))
-courses2 =  dict(zip(ls1, lst2))
-courses3 =  dict(zip(ls2, lst3))
 
 # 2
-name = ['Asl',  'sefesf',  'fegfsrg',  'getrweg', ]
-age = [16, 23, 18, 99]
-c = dict(zip(name, age))
-print(c)
+dic = {x['name']: x['age'] for x in students}
+print(dic)
+
 
 # 3
 names = ['Janyl', 'Nursultan', 'Meerim', 'Emir', 'Susann', 'Marcus', 'Aidin', 
@@ -70,13 +57,13 @@ names = ['Janyl', 'Nursultan', 'Meerim', 'Emir', 'Susann', 'Marcus', 'Aidin',
  'Martin', 'John', 'Andrew', 'Steve', 'Johnathan', 'Adyl', 'Chyngyz', 
 'Michael', 'Atay', 'Mikkel', 'Agnes', 'Aidana', 'Sultan', 'Nash',
  'Nicolas', 'Mirbek', 'Aktan', 'Emirlan', 'Jennifer', 'Eniston', 'Alex', 'Mark']
-rans = random.random()
-names_ages = {y: rans for y in names}
+ 
+def func(lst, dict):
+    for i in lst:
+        try:
+            print(i, '-', dict[i])
+        except KeyError:
+            print('Do not have such name', i)
+            continue
 
-print(names_ages)
-
-def f(names):
-    try:
-        print(f'{names_ages.keys()} - {names_ages.values()}')
-    except:
-        print('This key isn\'t exist')
+func(names, dic)
