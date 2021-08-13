@@ -13,22 +13,19 @@ Advertisers know we love our children and want to give them everything.
 Finally, consumers say, if there is advertising there must be rules. 
 Some adverts advertise unhealthy things like cigarettes and make people waste their money."""
 
-def func():
-    count = 0
-    for i in dan_text:
-        if 's' and 't' in dan_text:
-            count += 1
-    print(count)
 
-func()
+count_s = 0
+count_t = 0
 
-def function(dan_text):
-    dan_text.lower()
-    for j in dan_text.split():
-        if j.startswith('advert'):
-            j = j.upper()
-            print(j)
-
-    
-       
-function(dan_text)
+for letter in dan_text.lower():
+    if letter == 's':
+        count_s += 1
+    elif letter == 't':
+        count_t += 1
+      
+print(f't:{count_s}, t:{count_t}')
+  
+text = dan_text.replace('advert', 'ADVERT')
+# print(text)
+ 
+ 
